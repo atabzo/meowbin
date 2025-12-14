@@ -41,7 +41,7 @@ will be added soon! :D
 
 2. navigate into the project's directory and install the barebone dependencies
 
-cd meowbin
+```` cd meowbin ````
 
 ```` npm install ````
 
