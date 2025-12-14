@@ -16,8 +16,7 @@ meowbin: a simple interactive notebin web app
 - font formatting options
 - the flexibility of choosing your own custom link
 - an optional feature to protect the note with a password
-- a live word count reader
-- interactive visuals
+- a live wpm tracker as you type
 
 </samp>
 
