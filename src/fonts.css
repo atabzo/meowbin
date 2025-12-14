@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "Custom Header Font";
+    src: url('./assets/fonts/BitcountSingle.ttf') format('truetype');
+    font-weight: normal;
+    font-style: swap
+}
+

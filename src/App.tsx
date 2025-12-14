@@ -1,33 +1,39 @@
 import { useState } from 'react';
 import './App.css';
 
+type Tab = 'write' | 'share';
+
 function App() {
-  const [activeTab, setActiveTab] = useState<'write' | 'share'>('write');
+  const [activeTab, setActiveTab] = useState<Tab>('write');
   const [noteText, setNoteText] = useState("");
 
   return (
     <div className="app-container">
-      {/* Floating Navbar */}
-      <nav className="floating-navbar">
-        <div className="navbar-container">
-          <div className="tab-group">
-            <button
-              onClick={() => setActiveTab('write')}
-              className={`tab-button ${activeTab === 'write' ? 'active' : ''}`}
-            >
-              WRITE NOTE
-            </button>
-            <button
-              onClick={() => setActiveTab('share')}
-              className={`tab-button ${activeTab === 'share' ? 'active' : ''}`}
-            >
-              SHARE & COPY
-            </button>
-          </div>
+      {/* Brutalist Header */}
+      <header className="brutalist-header">
+        <div className="header-title">
+          🐱 MEOWBIN — YOUR ELEGANT NOTEBIN
         </div>
-      </nav>
+        <nav className="header-nav">
+          <button 
+            onClick={() => setActiveTab('write')}
+            className={`nav-item ${activeTab === 'write' ? 'active' : ''}`}
+          >
+            ✏️ Write
+          </button>
+          <button 
+            onClick={() => setActiveTab('share')}
+            className={`nav-item ${activeTab === 'share' ? 'active' : ''}`}
+          >
+            🔗 Share
+          </button>
+          <button className="nav-item">
+            ℹ️ About
+          </button>
+        </nav>
+      </header>
 
-      {/* Content area based on active tab */}
+      {/* Main Content */}
       <main className="main-content">
         {activeTab === 'write' ? (
           <div className="editor-section">
@@ -35,7 +41,7 @@ function App() {
               className="editor-textarea"
               value={noteText}
               onChange={(e) => setNoteText(e.target.value)}
-              placeholder="Start writing something beautiful..."
+              placeholder="Start writing..."
               autoFocus
             />
             <div className="stats">
@@ -45,7 +51,7 @@ function App() {
         ) : (
           <div className="share-section">
             <h2>Share your note</h2>
-            <button className="copy-button">Copy Link</button>
+            <button className="copy-button">COPY LINK</button>
           </div>
         )}
       </main>

@@ -1,104 +1,97 @@
-/* === BASE RESET === */
+/* === RESET === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: #0a0a0a;
-  color: #ffffff;
+/* === ROOT VARIABLES === */
+:root {
+  --bg-dark: #1a1a1a;
+  --bg-darker: #0f0f0f;
+  --accent-beige: #d4c4a8;
+  --accent-dark: #8b7e6a;
+  --text-light: #e8e8e8;
+  --border-color: #3a3a3a;
 }
 
-/* === APP CONTAINER === */
+body {
+  font-family: 'Courier New', 'Courier', monospace;
+  background: var(--bg-darker);
+  color: var(--text-light);
+}
+
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* === FLOATING NAVBAR === */
-.floating-navbar {
-  /* Padding around the navbar */
-  padding: 2rem 1rem;
-  
-  /* Stick to top when scrolling */
-  position: sticky;
-  top: 0;
-  
-  /* Ensure it's above other content */
-  z-index: 100;
-  
-  /* Glassmorphism background */
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(10px);
-}
-
-.navbar-container {
-  /* Constrain width and center */
-  max-width: 48rem; /* 768px */
-  margin: 0 auto;
-}
-
-/* === TAB GROUP (The bordered container) === */
-.tab-group {
+/* === BRUTALIST HEADER === */
+.brutalist-header {
   display: flex;
-  
-  /* The elegant border */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  
-  /* Remove inner borders between buttons */
-  overflow: hidden;
-  
-  /* Subtle shadow for depth */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: var(--bg-dark);
+  border-bottom: 2px solid var(--border-color);
 }
 
-/* === TAB BUTTONS === */
-.tab-button {
-  /* Equal width for both buttons */
+/* Left side - Title/Logo */
+.header-title {
   flex: 1;
+  padding: 1rem 2rem;
   
-  /* Spacing */
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  
+  background: var(--accent-beige);
+  color: var(--bg-darker);
+  
+  border-right: 2px solid var(--border-color);
+  
+  display: flex;
+  align-items: center;
+  
+  /* Prevent text wrapping */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Right side - Navigation */
+.header-nav {
+  display: flex;
+}
+
+.nav-item {
   padding: 1rem 1.5rem;
   
-  /* Typography */
-  font-family: 'Courier New', monospace;
+  font-family: 'Courier New', 'Courier', monospace;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
   
-  /* Remove default button styles */
   background: transparent;
+  color: var(--text-light);
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  border-left: 2px solid var(--border-color);
+  
   cursor: pointer;
+  transition: all 0.2s ease;
   
-  /* Smooth transitions */
-  transition: all 0.3s ease;
-  
-  /* Border between buttons */
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  /* Icon + text spacing */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* Remove border from last button */
-.tab-button:last-child {
-  border-right: none;
+.nav-item:hover {
+  background: rgba(212, 196, 168, 0.1);
+  color: var(--accent-beige);
 }
 
-/* Hover state */
-.tab-button:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Active state */
-.tab-button.active {
-  background: rgba(255, 255, 255, 1);
-  color: #0a0a0a;
-  font-weight: 700;
+.nav-item.active {
+  background: var(--accent-beige);
+  color: var(--bg-darker);
 }
 
 /* === MAIN CONTENT === */
@@ -107,52 +100,50 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
-/* === EDITOR SECTION === */
 .editor-section {
   width: 100%;
-  max-width: 48rem;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .editor-textarea {
   width: 100%;
-  min-height: 400px;
+  min-height: 500px;
   padding: 2rem;
   
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: var(--bg-dark);
+  border: 2px solid var(--border-color);
   
-  font-family: 'Inter', sans-serif;
-  font-size: 1.125rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-light);
   
   resize: vertical;
   outline: none;
   
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .editor-textarea:focus {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--accent-dark);
 }
 
 .editor-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(232, 232, 232, 0.3);
 }
 
 .stats {
   text-align: center;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
-  font-variant-numeric: tabular-nums;
+  color: var(--accent-dark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* === SHARE SECTION === */
@@ -161,41 +152,61 @@ body {
 }
 
 .share-section h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-beige);
 }
 
 .copy-button {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #0a0a0a;
-  background: white;
-  border: none;
-  border-radius: 8px;
+  padding: 1rem 2.5rem;
+  
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  
+  background: var(--accent-beige);
+  color: var(--bg-darker);
+  border: 2px solid var(--accent-beige);
+  
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .copy-button:hover {
+  background: transparent;
+  color: var(--accent-beige);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.copy-button:active {
+  transform: translateY(0);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .floating-navbar {
-    padding: 1rem 0.5rem;
+  .brutalist-header {
+    flex-direction: column;
   }
   
-  .tab-button {
-    padding: 0.875rem 1rem;
-    font-size: 0.75rem;
+  .header-title {
+    border-right: none;
+    border-bottom: 2px solid var(--border-color);
   }
   
-  .editor-textarea {
-    min-height: 300px;
-    padding: 1.5rem;
-    font-size: 1rem;
+  .header-nav {
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    border-left: none;
+    border-top: 2px solid var(--border-color);
+  }
+  
+  .nav-item:first-child {
+    border-top: none;
   }
 }
