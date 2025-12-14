@@ -1,7 +1,7 @@
 :root {
   --font-main: 'canvas-font', -apple-system, sans-serif;
-  --font-heading: 'MeaCulpa', Georgia, serif;
-  --font-mono: 'canvas-font', 'Courier New', monospace;
+  --font-heading: 'headingcustomfont', Georgia, serif;
+  --font-mono: 'headingcustomfont', 'Courier New', monospace;
 }
 
 * {
@@ -22,10 +22,89 @@ body, html {
   height: 100vh;
   background: #a8a8a8; 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 2rem; /* Space around the canvas */
-  gap: 2rem;
+}
+
+.header-container {
+left: 50%;
+transform: translateX(-50%); /* Center the text horizontally */
+z-index: 10; /* Make sure it's above other elements */
+pointer-events: none; /* Allows clicks to go through if needed */
+display: flex;
+align-items: flex-end; /* Align the text elements vertically */
+margin-bottom: 2rem; /* Space from the top of the canvas */
+}
+
+
+.welcome-text {
+  font-family: var(--font-heading); /* Assuming 'MeaCulpa' is your heading font */
+  font-size: 48px;
+  color: #333;
+  margin-right: 10px; /* Space before "meowbin!" */
+}
+
+.meowbin-text {
+  font-family: var(--font-heading); /* Assuming 'canvas-font' is your main font */
+  font-size: 52px;
+  color: #666;
+  display: inline-block;
+  transform: translateY(-5px); /* Slightly raise the text for alignment */
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 2px; /* Space between sidebar and canvas */
+  align-items: flex-start;
+}
+.sidebar {
+  height: 80vh; /* Matches the canvas height */
+  width: 50px; /* Fixed width for the vertical bar */
+  background: #d3d3d3; /* Light gray background */
+  border-radius: 10px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push the footer icon to the bottom */
+  align-items: center;
+  box-shadow: 1px 1px 0px #000000,
+                2px 2px 0px #000000,
+                3px 3px 0px #000000,
+                4px 4px 0px #000000,
+                5px 5px 0px #000000,
+                6px 6px 0px #000000;
+}
+
+.sidebar-list {
+  list-style:none;
+  padding: 0;
+  margin-top: 20px;
+
+}
+
+.sidebar-btn {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  color: #333;
+  transition: opacity 0.3s;
+}
+
+.sidebar-btn:hover {
+  opacity: 0.7;
+}
+
+
+.sidebar-list i, .sidebar-footer i {
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar-footer {
+  padding-bottom: 10px;
 }
 
 /* Wrapper for the canvas - controls the size */
@@ -61,18 +140,18 @@ body, html {
   
   /* Rounded corners and shadow for card effect */
   border-radius: 32px;
- box-shadow: 
+  box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.15),
     0 0 0 3px rgba(0, 0, 0, 0.1); /* Border effect */
-}
-  
+
   /* Dotted background */
   background-image: radial-gradient(circle, #d0d0d0 2px, transparent 2px);
   background-size: 24px 24px;
-  background-color: #f5f5f5;
+/* background-color: #f5f5f5; */
 }
+  
 
-/* Remove the outline when focused */
+
 .canvas:focus {
   outline: none;
 }
@@ -80,4 +159,16 @@ body, html {
 /* Style the placeholder */
 .canvas::placeholder {
   color: rgba(0, 0, 0, 0.3);
+}
+
+.cat-image {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+  background-image: url('./assets/kiki_transparent.png'); /* Adjust the path as necessary */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
