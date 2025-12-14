@@ -37,15 +37,15 @@ will be added soon! :D
 
 1. clone the repository 
 
-git clone github.com/atabzo/meowbin
+```` git clone github.com/atabzo/meowbin ````
 
 2. navigate into the project's directory and install the barebone dependencies
 
 cd meowbin
 
-npm install
+```` npm install ````
 
-npm install lucide-react
+```` npm install lucide-react ````
 
 3. ta-da! you're done :D
 
