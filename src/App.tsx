@@ -7,18 +7,12 @@ function App() {
   
   return (
     <div className="app-container">
-      <div className="header">
-            <span className="header-normal">Welcome to</span>
-            <span className="header-highlight">meowtion!</span>
-        </div>
-
-    <div className="app-container">
       <div className="canvas-wrapper">
         <textarea
           className="canvas"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="type type type"
+          placeholder="type type type?"
           spellCheck={false}
           autoCorrect="off"
           autoCapitalize="off"
@@ -27,7 +21,7 @@ function App() {
         />
       </div>
     </div>
-    </div> 
+  
   );
 }
 

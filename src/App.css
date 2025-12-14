@@ -1,13 +1,9 @@
 :root {
-  /* ... existing variables ... */
-  
-  /* Font variables */
   --font-main: 'canvas-font', -apple-system, sans-serif;
   --font-heading: 'MeaCulpa', Georgia, serif;
   --font-mono: 'canvas-font', 'Courier New', monospace;
 }
 
-/* Remove all default spacing */
 * {
   margin: 0;
   padding: 0;
@@ -17,15 +13,34 @@
 body, html {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Prevents scrollbars */
+  overflow: hidden;
 }
 
-/* The magic happens here */
-.canvas {
-  /* Size */
-  width: 100vw;  /* 100% of viewport width */
-  height: 100vh; /* 100% of viewport height */
+/* Main app container - fills the screen */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background: #a8a8a8; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem; /* Space around the canvas */
+  gap: 2rem;
+}
 
+/* Wrapper for the canvas - controls the size */
+.canvas-wrapper {
+  width: 500px;
+  height: 80vh; /* Adjust this to control height */
+  position: relative;
+  
+}
+
+/* The textarea itself */
+.canvas {
+  /* Size - now fills the wrapper instead of viewport */
+  width: 100%;
+  height: 100%;
   
   /* Remove default textarea styling */
   border: none;
@@ -33,19 +48,31 @@ body, html {
   resize: none;
   
   /* Typography */
-  font-family: 'canvas-font', BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 20px;
-  line-height: 1.7;
+  font-family: 'customfont', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
   
   /* Spacing */
-  padding: 4rem; /* Space from edges */
+  padding: 2rem;
   
-  /* Colors */
-  background: #f5f5f5;
-  color: #920101;
+  /* Colors and styling */
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  
+  /* Rounded corners and shadow for card effect */
+  border-radius: 32px;
+ box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 3px rgba(0, 0, 0, 0.1); /* Border effect */
+}
+  
+  /* Dotted background */
+  background-image: radial-gradient(circle, #d0d0d0 2px, transparent 2px);
+  background-size: 24px 24px;
+  background-color: #f5f5f5;
 }
 
-/* Remove the ugly blue outline when focused */
+/* Remove the outline when focused */
 .canvas:focus {
   outline: none;
 }
@@ -53,114 +80,4 @@ body, html {
 /* Style the placeholder */
 .canvas::placeholder {
   color: rgba(0, 0, 0, 0.3);
-}
-
-.canvas {
-  /* ... existing styles ... */
-  
-  /* Dotted background */
-  font-family: 'customfont', 'heading-font', sans-serif;
-  background-image: radial-gradient(circle, #eaf3ff 2px, transparent 1px);
-  background-size: 25px 25px; /* Spacing between dots */
-  background-color: #ffffff; /* Base color */
-}
-
-.floating-dock {
-  /* Position */
-  position: fixed;
-  left: 2rem;
-  top: 50%;
-  transform: translateY(-50%); /* Center horizontally */
-  flex-direction: column; /* Stack vertically */
-
-  /* Layout */
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  
-  /* Appearance */
-  background: rgba(125, 0, 0, 0.9);
-  backdrop-filter: blur(10px); /* Glassmorphism */
-  border-radius: 12px; /* Rounded corners */
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  
-  /* Shadow for depth */
-  box-shadow: 
-    10 10px  rgb(0, 0, 0),
-    10 8px  rgb(71, 9, 9);
-  
-  /* Layer order */
-  z-index: 1000;
-}
-
-/* Individual dock items */
-.dock-item {
-  /* Size */
-  width: 48px;
-  height: 48px;
-  
-  /* Remove button defaults */
-  border: none;
-  background: transparent;
-  
-  /* Center icon */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Icon size */
-  font-size: 20px;
-  
-  /* Rounded */
-  border-radius: 12px;
-  
-  /* Interaction */
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-/* Hover effect */
-.dock-item:hover {
-  background: rgba(0, 0, 0, 0.05);
-  transform: scale(1.1);
-}
-
-/* Active/pressed effect */
-.dock-item:active {
-  transform: scale(0.95);
-}
-
-.app-container {
-  width: 100vw;
-  height: 100vh;
-  background: #a8a8a8;
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  gap: 2rem; /* Space between header and canvas */
-}
-
-/* Header styling */
-.header {
-  display: flex;
-  align-items: center;
-  gap: 1rem; /* Space between text elements */
-  font-size: 3rem; /* Adjust size */
-  z-index: 10;
-}
-
-.header-normal {
-  font-family: Georgia, serif;
-  font-style: italic;
-  color: #2a2a2a;
-}
-
-.header-highlight {
-  font-family: 'customfont', cursive;
-  font-style: italic;
-  font-weight: bold;
-  color: #4ade80; /* Green color */
-  filter: drop-shadow(0 2px 8px rgba(74, 222, 128, 0.3));
 }
