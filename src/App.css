@@ -34,15 +34,15 @@ body, html {
   
   /* Typography */
   font-family: 'canvas-font', BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.7;
   
   /* Spacing */
   padding: 4rem; /* Space from edges */
   
   /* Colors */
   background: #f5f5f5;
-  color: #1a1a1a;
+  color: #920101;
 }
 
 /* Remove the ugly blue outline when focused */
@@ -60,8 +60,107 @@ body, html {
   
   /* Dotted background */
   font-family: 'customfont', 'heading-font', sans-serif;
-  background-image: radial-gradient(circle, #d0d0d0 2px, transparent 1px);
-  background-size: 40px 40px; /* Spacing between dots */
-  background-color: #f5f5f5; /* Base color */
+  background-image: radial-gradient(circle, #eaf3ff 2px, transparent 1px);
+  background-size: 25px 25px; /* Spacing between dots */
+  background-color: #ffffff; /* Base color */
 }
 
+.floating-dock {
+  /* Position */
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%); /* Center horizontally */
+  flex-direction: column; /* Stack vertically */
+
+  /* Layout */
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  
+  /* Appearance */
+  background: rgba(125, 0, 0, 0.9);
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  border-radius: 12px; /* Rounded corners */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  /* Shadow for depth */
+  box-shadow: 
+    10 10px  rgb(0, 0, 0),
+    10 8px  rgb(71, 9, 9);
+  
+  /* Layer order */
+  z-index: 1000;
+}
+
+/* Individual dock items */
+.dock-item {
+  /* Size */
+  width: 48px;
+  height: 48px;
+  
+  /* Remove button defaults */
+  border: none;
+  background: transparent;
+  
+  /* Center icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Icon size */
+  font-size: 20px;
+  
+  /* Rounded */
+  border-radius: 12px;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.dock-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+/* Active/pressed effect */
+.dock-item:active {
+  transform: scale(0.95);
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background: #a8a8a8;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem; /* Space between header and canvas */
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between text elements */
+  font-size: 3rem; /* Adjust size */
+  z-index: 10;
+}
+
+.header-normal {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #2a2a2a;
+}
+
+.header-highlight {
+  font-family: 'customfont', cursive;
+  font-style: italic;
+  font-weight: bold;
+  color: #4ade80; /* Green color */
+  filter: drop-shadow(0 2px 8px rgba(74, 222, 128, 0.3));
+}
