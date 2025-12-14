@@ -22,20 +22,21 @@ body, html {
   height: 100vh;
   background: #a8a8a8; 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 2rem; /* Space around the canvas */
+  gap: 2rem;
 }
 
 .header-container {
+position: absolute;
+top: 2rem; /* Matches the app-container padding */
 left: 50%;
 transform: translateX(-50%); /* Center the text horizontally */
 z-index: 10; /* Make sure it's above other elements */
 pointer-events: none; /* Allows clicks to go through if needed */
 display: flex;
 align-items: flex-end; /* Align the text elements vertically */
-margin-bottom: 2rem; /* Space from the top of the canvas */
 }
 
 
@@ -54,11 +55,6 @@ margin-bottom: 2rem; /* Space from the top of the canvas */
   transform: translateY(-5px); /* Slightly raise the text for alignment */
 }
 
-.content-wrapper {
-  display: flex;
-  gap: 2px; /* Space between sidebar and canvas */
-  align-items: flex-start;
-}
 .sidebar {
   height: 80vh; /* Matches the canvas height */
   width: 50px; /* Fixed width for the vertical bar */
@@ -165,8 +161,8 @@ margin-bottom: 2rem; /* Space from the top of the canvas */
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 100px;
-  height: 100px;
+  width: 700px;
+  height: 700px;
   background-image: url('./assets/kiki_transparent.png'); /* Adjust the path as necessary */
   background-size: contain;
   background-repeat: no-repeat;
