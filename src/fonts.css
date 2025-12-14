@@ -1,7 +1,15 @@
 @font-face {
-    font-family: "Custom Header Font";
-    src: url('./assets/fonts/BitcountSingle.ttf') format('truetype');
+    font-family: "customfont";
+    src: url('./assets/fonts/RobotoSerif.ttf') format('truetype');
     font-weight: normal;
-    font-style: swap
+    font-style: normal;
+    font-display: swap;
 }
 
+@font-face {
+    font-family:"headingcustomfont" ;
+    src: url('./assets/fonts/RobotoSerif.ttf') 
+    format('truetype'); 
+    fpmt-style: normal;
+    font-diplay: swap
+}

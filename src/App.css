@@ -1,3 +1,12 @@
+:root {
+  /* ... existing variables ... */
+  
+  /* Font variables */
+  --font-main: 'canvas-font', -apple-system, sans-serif;
+  --font-heading: 'MeaCulpa', Georgia, serif;
+  --font-mono: 'canvas-font', 'Courier New', monospace;
+}
+
 /* Remove all default spacing */
 * {
   margin: 0;
@@ -16,6 +25,7 @@ body, html {
   /* Size */
   width: 100vw;  /* 100% of viewport width */
   height: 100vh; /* 100% of viewport height */
+
   
   /* Remove default textarea styling */
   border: none;
@@ -23,7 +33,7 @@ body, html {
   resize: none;
   
   /* Typography */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'canvas-font', BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 18px;
   line-height: 1.6;
   
@@ -49,7 +59,9 @@ body, html {
   /* ... existing styles ... */
   
   /* Dotted background */
-  background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
-  background-size: 20px 20px; /* Spacing between dots */
+  font-family: 'customfont', 'heading-font', sans-serif;
+  background-image: radial-gradient(circle, #d0d0d0 2px, transparent 1px);
+  background-size: 40px 40px; /* Spacing between dots */
   background-color: #f5f5f5; /* Base color */
 }
+
