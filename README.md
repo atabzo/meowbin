@@ -30,3 +30,23 @@ meowbin: a simple interactive notebin web app
 will be added soon! :D
 
 </samp>
+
+<samp> 
+
+## installation steps!
+
+1. clone the repository 
+
+git clone github.com/atabzo/meowbin
+
+2. navigate into the project's directory and install the barebone dependencies
+
+cd meowbin
+
+npm install
+
+npm install lucide-react
+
+3. ta-da! you're done :D
+
+</samp>
